@@ -22,7 +22,9 @@ O nosso simulador conta com as seguintes funcionalidades:
 * Inserir/editar tempo de uso de cada aparelho;
 * Inserir/editar consumo do aparelho;
 * Reiniciar simulação;
-* Gerar relatório geral;
+* Inserir consumo mensal real para comparação;
+* Gerar relatório geral da simulação;
+* Gerar relatório geral de comparação;
 * Informações;
 
 
@@ -30,12 +32,14 @@ O nosso simulador conta com as seguintes funcionalidades:
 ### 3. Restrições
 O simulador de consumo energético terá as seguintes restrições:
 
-* 
+* O usuário deverá criar um cadastro;
+* O usuário deverá cadastrar os cômodos;
+* Para realizar a comparação entre simulação e consumo real, é necessário que o usuário tenha ao menos um de cada cadastrado;
 
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
-Abaixo temos a prototipação das principais telas do simulado de consumo energético.
+Abaixo temos a prototipação das principais telas do simulador de consumo energético.
 
 * Tela de login
 
