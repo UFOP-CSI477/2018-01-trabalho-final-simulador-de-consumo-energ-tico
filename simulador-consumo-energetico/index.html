@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Simulador de Consumo Energético</title>
+<!--
+Comila Template
+http://www.templatemo.com/tm-490-comila
+-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<!-- stylesheets css -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+
+<link rel="stylesheet" href="css/et-line-font.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+<link rel="stylesheet" href="css/vegas.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/consumo.css">
+
+<link href='https://fonts.googleapis.com/css?family=Rajdhani:400,500,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <!-- preloader section -->
+<!-- <section class="preloader">
+<div class="sk-circle">
+<div class="sk-circle1 sk-child"></div>
+<div class="sk-circle2 sk-child"></div>
+<div class="sk-circle3 sk-child"></div>
+<div class="sk-circle4 sk-child"></div>
+<div class="sk-circle5 sk-child"></div>
+<div class="sk-circle6 sk-child"></div>
+<div class="sk-circle7 sk-child"></div>
+<div class="sk-circle8 sk-child"></div>
+<div class="sk-circle9 sk-child"></div>
+<div class="sk-circle10 sk-child"></div>
+<div class="sk-circle11 sk-child"></div>
+<div class="sk-circle12 sk-child"></div>
+</div>
+</section> -->
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-flash"></span> Consumo Energético</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meus Cômodos <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Sala</a></li>
+                <li><a href="#">Cozinha</a></li>
+                <li><a href="#">Banheiro Social</a></li>
+              </ul>
+            </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Cadastrar</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- home section -->
+<section id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-12">
+        <div class="home-thumb">
+          <h1 class="wow fadeInUp" data-wow-delay="0.4s">Simulador de Consumo Energético</h1>
+          <h3 class="wow fadeInUp" data-wow-delay="0.6s">Veja qual o <strong>consumo de energia</strong> de cada <strong>cômodo de sua casa</strong>.</h3>
+          <a href="#about" class="btn btn-lg btn-default smoothScroll wow fadeInUp" data-wow-delay="0.8s">Iniciar simulação</a>
+          <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-lg btn-success smoothScroll wow fadeInUp hidden-xs" data-wow-delay="1.0s">Entenda o cálculo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>		
+</section>
+
+<!-- about section -->
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="section-title">
+            <h1 class="wow fadeIn" data-wow-delay="0.2s">Quem Regulamenta</h1>
+            <h3 class="wow fadeInUp" data-wow-delay="0.4s">Agência Nacional de Energia Elétrica (ANEEL)</h3>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="row">
+            <img src="images/ANEEL_Sede.jpg" class="img-responsive wow fadeInUp" alt="Sede">
+        </div>
+        <div class="row" style="padding: 30px 0;">
+            <img src="images/ANEEL_logo.jpg" class="img-responsive wow fadeInUp" alt="Logo" style="margin: auto; width: 60%;">
+        </div>
+      </div>
+
+      <div class="col-md-8 col-sm-12">
+        <div class="about-thumb">
+          
+          <div class="wow fadeInUp justify" data-wow-delay="0.6s">
+            <p>A Agência Nacional de Energia Elétrica (ANEEL), autarquia em regime especial vinculada ao Ministério de Minas e Energia, foi criada para regular o setor elétrico brasileiro, por meio da Lei nº 9.427/1996 e do Decreto nº 2.335/1997.</p>
+            <p>A ANEEL iniciou suas atividades em dezembro de 1997, tendo como principais atribuições:</p>
+            <ul>
+              <li>Regular a geração (produção), transmissão, distribuição e comercialização de energia elétrica;</li>
+              <li>Fiscalizar, diretamente ou mediante convênios com órgãos estaduais, as concessões, as permissões e os serviços de energia elétrica;</li>
+              <li>Implementar as políticas e diretrizes do governo federal relativas à exploração da energia elétrica e ao aproveitamento dos potenciais hidráulicos;</li>
+              <li>Estabelecer tarifas;</li>
+              <li>Dirimir as divergências, na esfera administrativa, entre os agentes e entre esses agentes e os consumidores;</li>
+              <li>Promover as atividades de outorgas de concessão, permissão e autorização de empreendimentos e serviços de energia elétrica, por delegação do Governo Federal.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- feature section -->
+<section id="feature">
+  <div class="container">
+    <div class="row">
+
+      <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+        <path d="M0 0 L50 100 L100 0 Z"></path>
+      </svg>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="media wow fadeInUp" data-wow-delay="0.4s">
+          <div class="media-object media-left">
+            <i class="icon icon-laptop"></i>
+          </div>
+          <div class="media-body">
+            <h2 class="media-heading">Responsive</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus lacus nulla, eget varius justo tristique ut.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="media wow fadeInUp" data-wow-delay="0.8s">
+          <div class="media-object media-left">
+            <i class="icon icon-refresh"></i>
+          </div>
+          <div class="media-body">
+            <h2 class="media-heading">Bootstrap</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus lacus nulla, eget varius justo tristique ut.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-8">
+        <div class="media wow fadeInUp" data-wow-delay="1.2s">
+          <div class="media-object media-left">
+            <i class="icon icon-chat"></i>
+          </div>
+          <div class="media-body">
+            <h2 class="media-heading">Support</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus lacus nulla, eget varius justo tristique ut.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix text-center col-md-12 col-sm-12">
+        <a href="#contact" class="btn btn-default smoothScroll">Talk to us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- contact section -->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-offset-2 col-md-8 col-sm-12">
+        <div class="section-title">
+          <h1 class="wow fadeInUp" data-wow-delay="0.3s">Get in touch</h1>
+          <p class="wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+        </div>
+        <div class="contact-form wow fadeInUp" data-wow-delay="1.0s">
+          <form id="contact-form" method="post" action="#">
+            <div class="col-md-6 col-sm-6">
+             <input name="name" type="text" class="form-control" placeholder="Your Name" required>
+           </div>
+           <div class="col-md-6 col-sm-6">
+             <input name="email" type="email" class="form-control" placeholder="Your Email" required>
+           </div>
+           <div class="col-md-12 col-sm-12">
+            <textarea name="message" class="form-control" placeholder="Message" rows="6" required></textarea>
+          </div>
+          <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+           <input name="submit" type="submit" class="form-control submit" id="submit" value="SEND MESSAGE">
+         </div>
+       </form>
+     </div>
+   </div>
+
+ </div>
+</div>
+</section>
+
+<!-- footer section -->
+<footer>
+  <div class="container">
+    <div class="row">
+
+      <svg class="svgcolor-light" preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0 L50 100 L100 0 Z"></path>
+      </svg>
+
+      <div class="col-md-4 col-sm-6">
+        <h2>Fontes</h2>
+        <div class="wow fadeInUp" data-wow-delay="0.3s">
+          <p><a href="http://www.aneel.gov.br/a-aneel">ANEEL -  A ANNEL</a></p>
+          <p><a href="http://www.aneel.gov.br/entendendo-a-tarifa">ANEEL -  Entendendo a Tarifa</a></p>
+          <p><a href="http://www.aneel.gov.br/bandeiras-tarifarias">ANEEL -  Bandeiras Tarifárias</a></p>
+          <p><a href="http://www.cemig.com.br/pt-br/atendimento/Paginas/Bandeiras_tarifárias.aspx">CEMIG - Bandeiras Tarifárias</a></p>
+          <p class="copyright-text">Copyright &copy; 2016 Your Company <br>
+           Designed by <a rel="nofollow" href="http://www.google.com/+templatemo" target="_parent">Templatemo</a></p>
+         </div>
+       </div>
+
+       <div class="col-md-1 col-sm-1"></div>
+
+       <div class="col-md-4 col-sm-5">
+        <h2>Our Studio</h2>
+        <p class="wow fadeInUp" data-wow-delay="0.6s">
+          120-240 aliquam augue libero,<br>
+          Convallis in vulputate 10220 <br>
+          San Francisco, CA, USA
+        </p>
+        <ul class="social-icon">
+          <li><a href="#" class="fa fa-facebook wow bounceIn" data-wow-delay="0.9s"></a></li>
+          <li><a href="#" class="fa fa-twitter wow bounceIn" data-wow-delay="1.2s"></a></li>
+          <li><a href="#" class="fa fa-behance wow bounceIn" data-wow-delay="1.4s"></a></li>
+          <li><a href="#" class="fa fa-dribbble wow bounceIn" data-wow-delay="1.6s"></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-popup">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title">Our Newsletter</h2>
+      </div>
+      <form action="#" method="post">
+        <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Full Name">
+        <input name="email" type="text" class="form-control" id="email" placeholder="Email Address">
+        <input name="submit" type="submit" class="form-control" id="submit" value="Subscribe Now">
+      </form>
+      <p>Thank you for your visiting!</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- javscript js -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/vegas.min.js"></script>
+
+<script src="js/wow.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
