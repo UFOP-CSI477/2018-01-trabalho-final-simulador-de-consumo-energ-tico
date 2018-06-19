@@ -17,6 +17,8 @@ class CreateRelatoriosTable extends Migration
             $table->increments('id');
             $table->date('data');
             $table->float('consumo');
+            $table->integer('user_id');
+            $table->integer('distr_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('distr_id')->references('id')->on('distribuidores');
             $table->timestamps();
