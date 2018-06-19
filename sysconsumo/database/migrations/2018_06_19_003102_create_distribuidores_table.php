@@ -15,6 +15,9 @@ class CreateDistribuidoresTable extends Migration
     {
         Schema::create('distribuidores', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('uf');
+            $table->float('tarifa');
             $table->timestamps();
         });
     }

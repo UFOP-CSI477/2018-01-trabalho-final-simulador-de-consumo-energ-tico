@@ -15,6 +15,8 @@ class CreateComodoHasRelatorioTable extends Migration
     {
         Schema::create('comodo_has_relatorio', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('comodo_id')->references('id')->on('comodos');
+            $table->foreign('relatorio_id')->references('id')->on('relatorios');
             $table->timestamps();
         });
     }
