@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/adm', function () {
+    return view('administrativo/principal');
+});
+
+Route::get('/relatorios', function () {
+    return view('administrativo/chart');
+});
