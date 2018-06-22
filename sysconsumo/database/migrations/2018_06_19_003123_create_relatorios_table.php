@@ -13,14 +13,15 @@ class CreateRelatoriosTable extends Migration
      */
     public function up()
     {
-        Schema::create('relatorios', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('data');
-            $table->float('consumo');
+            $table->date('date');
+            $table->float('watts');
+            $table->float('spend');
             $table->integer('user_id');
             $table->integer('distr_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('distr_id')->references('id')->on('distribuidores');
+            $table->foreign('distr_id')->references('id')->on('distributors');
             $table->timestamps();
         });
     }
@@ -33,5 +34,6 @@ class CreateRelatoriosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('relatorios');
+        Schema::dropIfExists('reports');
     }
 }

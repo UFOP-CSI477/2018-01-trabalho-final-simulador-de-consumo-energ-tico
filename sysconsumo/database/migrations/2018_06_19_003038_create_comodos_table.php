@@ -13,7 +13,7 @@ class CreateComodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('comodos', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
@@ -30,5 +30,6 @@ class CreateComodosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('comodos');
+        Schema::dropIfExists('rooms');
     }
 }

@@ -13,14 +13,14 @@ class CreateAparelhosTable extends Migration
      */
     public function up()
     {
-        Schema::create('aparelhos', function (Blueprint $table) {
+        Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('quantidade');
-            $table->time('tempo_uso');
-            $table->float('potencia');
-            $table->integer('comodo_id');
-            $table->foreign('comodo_id')->references('id')->on('comodos');
+            $table->integer('amount');
+            $table->time('time_use');
+            $table->float('watts');
+            $table->integer('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms');
             $table->timestamps();
         });
     }
@@ -33,5 +33,6 @@ class CreateAparelhosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('aparelhos');
+        Schema::dropIfExists('equipments');
     }
 }

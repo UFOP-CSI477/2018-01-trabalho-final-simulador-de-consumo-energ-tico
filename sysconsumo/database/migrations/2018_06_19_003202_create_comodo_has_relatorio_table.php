@@ -13,12 +13,12 @@ class CreateComodoHasRelatorioTable extends Migration
      */
     public function up()
     {
-        Schema::create('comodo_has_relatorio', function (Blueprint $table) {
+        Schema::create('room_has_report', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('comodo_id');
-            $table->integer('relatorio_id');
-            $table->foreign('comodo_id')->references('id')->on('comodos');
-            $table->foreign('relatorio_id')->references('id')->on('relatorios');
+            $table->integer('room_id');
+            $table->integer('report_id');
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('report_id')->references('id')->on('reports');
             $table->timestamps();
         });
     }
@@ -31,5 +31,6 @@ class CreateComodoHasRelatorioTable extends Migration
     public function down()
     {
         Schema::dropIfExists('comodo_has_relatorio');
+        Schema::dropIfExists('room_has_report');
     }
 }
