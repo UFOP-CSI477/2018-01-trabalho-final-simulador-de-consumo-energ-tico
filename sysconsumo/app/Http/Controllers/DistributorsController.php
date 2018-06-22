@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Distributor;
 use Illuminate\Http\Request;
 
-class DistributorController extends Controller
+class DistributorsController extends Controller
 {
     /**
      * Display a listing of the resource.
