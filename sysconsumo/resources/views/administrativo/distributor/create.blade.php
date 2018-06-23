@@ -12,6 +12,7 @@
                             Cadastro de <strong>Distribuidora</strong>
                         </div>
                         <form action="{{ route('distributors.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            @csrf
                             <div class="card-body card-block">
                                 <div class="row form-group">
                                     <div class="col col-md-3">
@@ -21,7 +22,7 @@
                                         <input type="text" id="name" name="name" placeholder="Nome da distribuidora de energia" class="form-control">
                                     </div>
                                 </div>
-                                
+
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="uf" class=" form-control-label">UF:</label>
@@ -68,7 +69,7 @@
                                     <div class="col-12 col-md-9">
                                         <div class="input-group">
                                             <div class="input-group-addon">R$</div>
-                                            <input type="number" id="tarifa" name="tarifa" placeholder="Tarifa convencional" class="form-control">
+                                            <input type="text" id="tarifa" name="tarifa" placeholder="Tarifa convencional" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -77,10 +78,10 @@
                                         <small class="help-block form-text">Informações podem ser obtidas no <a href="http://www.aneel.gov.br/ranking-das-tarifas">site da ANEEL</a></small>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="card-footer">
-                                <input type="submit" class="btn btn-success btn-sm" value="Cadastrar">
+                                <input type="submit" name="btnCadastrar" class="btn btn-success btn-sm" value="Cadastrar">
                                 <input type="reset" class="btn btn-danger btn-sm" value="Limpar">
                             </div>
                         </form>

@@ -37,9 +37,11 @@ class DistributorsController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
+
         Distributor::create($request->all());
         session()->flash('mensagem', 'Distribuidora de energia inserida com sucesso!');
-        return redirect()->route('administrativo.distributor.index');
+        return redirect('/adm');
     }
 
     /**
