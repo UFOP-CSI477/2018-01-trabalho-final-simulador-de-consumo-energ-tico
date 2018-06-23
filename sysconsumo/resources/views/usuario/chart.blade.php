@@ -1,4 +1,4 @@
-@extends('layout.template')
+@extends('administrativo.layout.template')
 @section('conteudo')
 
 <!-- MAIN CONTENT-->

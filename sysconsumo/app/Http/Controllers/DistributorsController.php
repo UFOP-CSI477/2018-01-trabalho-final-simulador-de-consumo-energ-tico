@@ -14,7 +14,9 @@ class DistributorsController extends Controller
      */
     public function index()
     {
-        //
+        $distributors = Distributor::all();
+        return view('administrativo.distributor.index')->with('distributors', $distributors);
+
     }
 
     /**
@@ -24,7 +26,7 @@ class DistributorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.distributor.create');
     }
 
     /**
@@ -35,7 +37,9 @@ class DistributorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Distributor::create($request->all());
+        session()->flash('mensagem', 'Distribuidora de energia inserida com sucesso!');
+        return redirect()->route('administrativo.distributor.index');
     }
 
     /**
@@ -46,7 +50,7 @@ class DistributorsController extends Controller
      */
     public function show(Distributor $distributor)
     {
-        //
+        return view('administrativo.distributor.show')->with('distributor', $distributor);
     }
 
     /**
@@ -57,7 +61,7 @@ class DistributorsController extends Controller
      */
     public function edit(Distributor $distributor)
     {
-        //
+        return view('administrativo.distributor.edit')->with('distributor', $distributor);
     }
 
     /**
@@ -69,7 +73,10 @@ class DistributorsController extends Controller
      */
     public function update(Request $request, Distributor $distributor)
     {
-        //
+        $distributor->fill($request->all());
+        $distributor->save();
+        session()->flash('mensagem','Distribuidora de energia atualizada com sucesso!');
+        return redirect()->route('administrativo.distributor.show', $distributor->id);
     }
 
     /**

@@ -19,6 +19,16 @@ Route::get('/adm', function () {
     return view('administrativo/principal');
 });
 
-Route::get('/relatorios', function () {
+Route::get('/user', function () {
+    return view('usuario/principal');
+});
+
+Route::get('/reports', function () {
     return view('administrativo/chart');
 });
+
+//Route::resource('/user', 'UsersController');
+Route::resource('/distributors', 'DistributorsController');
+// Route::resource('/rooms', 'RoomsController');
+// Route::resource('/equipments', 'EquipmentsController');
+// Route::resource('/reports', 'ReportsController');
