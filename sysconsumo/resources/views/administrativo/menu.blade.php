@@ -35,10 +35,10 @@
                                 <i class="fa fa-bars"></i>Distribuidoras</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="#">Listar</a>
+                                    <a href="{{ route('distributors.index') }}">Listar</a>
                                 </li>
                                 <li>
-                                    <a href="#">Cadastrar</a>
+                                    <a href="{{ route('distributors.create') }}">Cadastrar</a>
                                 </li>
                             </ul>
                         </li>

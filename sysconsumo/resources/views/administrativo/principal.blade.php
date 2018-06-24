@@ -7,9 +7,9 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <a href="{{ route('distributors.create') }}" class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>Distribuidora de energia
+                                <div class="overview-wrap" style="float: right;">
+                                    <a href="{{ route('distributors.create') }}" class="au-btn au-btn-icon au-btn--black">
+                                        <i class="zmdi zmdi-plus"></i>Adicionar distribuidora de energia
                                     </a>
                                 </div>
                             </div>

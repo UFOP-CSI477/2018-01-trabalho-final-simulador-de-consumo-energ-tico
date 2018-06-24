@@ -13,25 +13,25 @@
     <title>@yield('title') | Consumo energético</title>
 
     <!-- Fontfaces CSS-->
-    <link href="../css/font-face.css" rel="stylesheet" media="all">
-    <link href="../css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="../css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="../css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="/css/font-face.css" rel="stylesheet" media="all">
+    <link href="/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="../css/bootstrap4.1.min.css" rel="stylesheet" media="all">
+    <link href="/css/bootstrap4.1.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="../css/animsition.min.css" rel="stylesheet" media="all">
-    <link href="../css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="../css/animate.css" rel="stylesheet" media="all">
-    <link href="../css/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="../css/slick.css" rel="stylesheet" media="all">
-    <link href="../css/select2.min.css" rel="stylesheet" media="all">
-    <link href="../css/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="/css/animsition.min.css" rel="stylesheet" media="all">
+    <link href="/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="/css/animate.css" rel="stylesheet" media="all">
+    <link href="/css/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="/css/slick.css" rel="stylesheet" media="all">
+    <link href="/css/select2.min.css" rel="stylesheet" media="all">
+    <link href="/css/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="../css/theme.css" rel="stylesheet" media="all">
+    <link href="/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -100,28 +100,28 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap4.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap4.1.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="../js/slick.min.js">
+    <script src="/js/slick.min.js">
     </script>
-    <script src="../js/wow.min.js"></script>
-    <script src="../js/animsition.min.js"></script>
-    <script src="../js/bootstrap-progressbar.min.js">
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/animsition.min.js"></script>
+    <script src="/js/bootstrap-progressbar.min.js">
     </script>
-    <script src="../js/jquery.waypoints.min.js"></script>
-    <script src="../js/jquery.counterup.min.js">
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js">
     </script>
-    <script src="../js/circle-progress.min.js"></script>
-    <script src="../js/perfect-scrollbar.js"></script>
-    <script src="../js/Chart.bundle.min.js"></script>
-    <script src="../js/select2.min.js">
+    <script src="/js/circle-progress.min.js"></script>
+    <script src="/js/perfect-scrollbar.js"></script>
+    <script src="/js/Chart.bundle.min.js"></script>
+    <script src="/js/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="../js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 

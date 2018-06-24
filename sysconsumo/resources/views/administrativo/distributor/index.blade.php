@@ -7,9 +7,10 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>Distribuidora de energia</button>
+                                <div class="overview-wrap" style="float: right;">
+                                    <a href="{{ route('distributors.create') }}" class="au-btn au-btn-icon au-btn--black">
+                                        <i class="zmdi zmdi-plus"></i>Distribuidora de energia
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -24,15 +25,35 @@
                                                 <th>Nome</th>
                                                 <th>UF</th>
                                                 <th>Tarifa</th>
+                                                <th style="padding: 22px 22px;text-align: center;">Ações</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td>$999.00</td>
-                                            </tr>
+                                            @foreach($distributors as $d)
+                                                <tr>
+                                                    <td>{{ $d->id }}</td>
+                                                    <td>{{ $d->name }}</td>
+                                                    <td>{{ $d->uf }}</td>
+                                                    <td>{{ $d->tarifa }}</td>
+                                                    <td style="padding:12px 22px;text-align:center;">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <a href="{{ route('distributors.show', $d->id) }}" class="btn btn-primary btn-sm" style="width:100%;">Detalhes</a>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <a href="{{ route('distributors.edit', $d->id) }}" class="btn btn-info btn-sm" style="width:100%;">Editar</a>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <form method="post" action="{{ route('distributors.destroy', $d->id) }}">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <input type="submit" class="btn btn-danger btn-sm" value="Excluir" style="width:100%;">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
