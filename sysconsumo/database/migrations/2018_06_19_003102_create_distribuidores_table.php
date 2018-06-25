@@ -17,7 +17,7 @@ class CreateDistribuidoresTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('uf');
-            $table->float('tarifa');
+            $table->float('tarifa', 8, 4);
             $table->timestamps();
         });
     }

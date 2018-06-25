@@ -41,7 +41,7 @@ class DistributorsController extends Controller
 
         Distributor::create($request->all());
         session()->flash('mensagem', 'Distribuidora de energia inserida com sucesso!');
-        return redirect('/adm');
+        return redirect()->route('distributors.index');
     }
 
     /**
@@ -78,7 +78,7 @@ class DistributorsController extends Controller
         $distributor->fill($request->all());
         $distributor->save();
         session()->flash('mensagem','Distribuidora de energia atualizada com sucesso!');
-        return redirect()->route('administrativo.distributor.show', $distributor->id);
+        return redirect()->route('distributors.show', $distributor->id);
     }
 
     /**

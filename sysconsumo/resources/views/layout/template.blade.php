@@ -33,6 +33,9 @@
     <!-- Main CSS-->
     <link href="/css/theme.css" rel="stylesheet" media="all">
 
+    <!-- Jquery JS-->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+
 </head>
 
 <body class="animsition">
@@ -56,8 +59,8 @@
         <!-- HEADER CONTINUA NO ARQUIVO DE MENU PARA PERMITIR PERSONALIZAÇÃO PARA OS DOIS TIPOS DE USUÁRIO ADMINISTRADOR E USUÁRIO COMUM -->
 
         <!-- verificar se é adm se for usar o include 1 se não o include 2 -->
-            @include('administrativo.menu')
-        <!-- include('usuario.menu') -->
+        <!-- include('administrativo.menu') -->
+        @include('usuario.menu')
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
@@ -90,17 +93,25 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-
-            <!-- MAIN CONTENT -->
-            @yield('conteudo')
-
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        @if(Session::has('mensagem'))
+                            <div class="alert alert-warning" role="alert">
+                                {{ Session::get('mensagem') }}
+                            </div>
+                        @endif
+                        @yield('conteudo')
+                        @include('layout.footer')
+                    </div>
+                </div>
+            </div>
             <!-- END PAGE CONTAINER-->
         </div>
 
     </div>
 
-    <!-- Jquery JS-->
-    <script src="/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap4.1.min.js"></script>

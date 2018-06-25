@@ -14,7 +14,8 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::all();
+        return view('usuario.room.index')->with('rooms', $rooms);
     }
 
     /**
@@ -24,7 +25,7 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuario.room.create');
     }
 
     /**
@@ -35,7 +36,9 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Room::create($request->all());
+        session()->flash('mensagem', 'Cômodo inserido com sucesso!');
+        return redirect()->route('rooms.index');
     }
 
     /**
@@ -46,7 +49,7 @@ class RoomsController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        return view('usuario.room.show')->with('room', $room);
     }
 
     /**
@@ -57,7 +60,7 @@ class RoomsController extends Controller
      */
     public function edit(Room $room)
     {
-        //
+        return view('usuario.room.edit')->with('room', $room);
     }
 
     /**
@@ -69,7 +72,10 @@ class RoomsController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        //
+        $room->fill($request->all());
+        $room->save();
+        session()->flash('mensagem','Cômodo atualizado com sucesso!');
+        return redirect()->route('rooms.show', $room->id);
     }
 
     /**

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Room;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,15 +21,17 @@ Route::get('/adm', function () {
 });
 
 Route::get('/user', function () {
-    return view('usuario/principal');
+	$rooms = Room::all();
+    return view('usuario/principal')->with('rooms', $rooms);
 });
 
 Route::get('/reports', function () {
     return view('administrativo/chart');
 });
 
-//Route::resource('/user', 'UsersController');
 Route::resource('/distributors', 'DistributorsController');
-// Route::resource('/rooms', 'RoomsController');
+Route::resource('/rooms', 'RoomsController');
+
+//Route::resource('/user', 'UsersController');
 // Route::resource('/equipments', 'EquipmentsController');
 // Route::resource('/reports', 'ReportsController');
