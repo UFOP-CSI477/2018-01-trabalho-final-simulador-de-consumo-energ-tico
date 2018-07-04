@@ -45,14 +45,9 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a href="#">
                             <i class="fa-flash"></i>CONSUMO ENERGÉTICO
                         </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -60,7 +55,7 @@
 
         <!-- verificar se é adm se for usar o include 1 se não o include 2 -->
         <!-- include('administrativo.menu') -->
-        @include('usuario.menu')
+        @yield('menu')
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
@@ -71,21 +66,47 @@
                         <div class="header-wrap">
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
-                                    <div class="content">
-                                        <a class="js-acc-btn" href="#">nome do usuário logado</a>
-                                    </div>
-                                    <div class="account-dropdown js-dropdown">
-                                        <div class="account-dropdown__body">
-                                            <div class="account-dropdown__item">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-settings"></i>Configurações</a>
-                                            </div>
+                                    <nav class="navbar navbar-dark navbar-expand-md">
+                                        <div class="container">
+                                            <ul class="navbar-nav ml-auto">
+                                                <!-- Authentication Links -->
+                                                @guest
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastrar') }}</a>
+                                                    </li>
+                                                @else
+                                                    <li class="account-item clearfix js-item-menu">
+                                                        <a id="navbarDropdown" class="js-acc-btn">
+                                                            {{ Auth::user()->name }} <i class="fa fa-angle-down"></i>
+                                                        </a>
+
+                                                        <div class="account-dropdown js-dropdown">
+                                                            <div class="account-dropdown__item">
+                                                                <a href="{{ route('user.edit', Auth::user()->id) }}">
+                                                                    {{ __('Alterar dados') }}
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="account-dropdown__item">
+                                                                <a href="{{ route('logout') }}"
+                                                                   onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                                                    {{ __('Logout') }}
+                                                                </a>
+                                                            </div>
+
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </div>
+                                                    </li>
+                                                @endguest
+                                            </ul>
                                         </div>
-                                        <div class="account-dropdown__footer">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-power"></i>Sair</a>
-                                        </div>
-                                    </div>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +117,7 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    <div class="container-fluid">
+                    <div class="container-fluid">                    
                         @if(Session::has('mensagem'))
                             <div class="alert alert-warning" role="alert">
                                 {{ Session::get('mensagem') }}

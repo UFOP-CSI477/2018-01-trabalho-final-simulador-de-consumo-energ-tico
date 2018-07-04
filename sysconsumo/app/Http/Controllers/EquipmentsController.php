@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Equipment;
+use App\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EquipmentsController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,17 @@ class EquipmentsController extends Controller
      */
     public function index()
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            $equipment = Equipments::orderBy('name')->where('user_id',Auth::user()->id)->get();
+            return view('usuario.equipment.index')->with('equipments', $equipments);
+        }
+
     }
 
     /**
@@ -21,9 +39,22 @@ class EquipmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function create(){
+        # code...
+    }
+
+    public function create_for_room(Room $room)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            return view('usuario.equipment.create')->with('room', $room);
+        }
     }
 
     /**
@@ -34,7 +65,17 @@ class EquipmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            Equipment::create($request->all());
+            session()->flash('mensagem', 'Equipamento inserido com sucesso!');
+            return redirect()->route('rooms.show', $request->room_id);
+        }
     }
 
     /**
@@ -43,9 +84,17 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Equipment $equipment)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            return view('usuario.equipment.show')->with('equipment', $equipment);
+        }
     }
 
     /**
@@ -54,9 +103,17 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Equipment $equipment)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            return view('usuario.equipment.edit')->with('equipment', $equipment);
+        }
     }
 
     /**
@@ -66,9 +123,20 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Equipment $equipment)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            $equipment->fill($request->all());
+            $equipment->save();
+            session()->flash('mensagem','Equipamento atualizado com sucesso!');
+            return redirect()->route('rooms.show', $equipment->room_id);
+        }
     }
 
     /**
@@ -77,8 +145,18 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Equipment $equipment)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user.index');
+        }
+        //usuário comum
+        else{
+            $equipment->delete();
+            session()->flash('mensagem', 'Equipamento excluído com sucesso!');
+            return redirect()->route('rooms.show', $equipment->room_id);
+        }
     }
 }

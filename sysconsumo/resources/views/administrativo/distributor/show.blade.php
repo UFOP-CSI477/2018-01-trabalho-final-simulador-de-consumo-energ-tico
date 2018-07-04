@@ -1,5 +1,8 @@
 @extends('layout.template')
 @section('title', 'Detalhes da Distribuidora')
+@section('menu')
+    @include('administrativo.menu')
+@endsection
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">

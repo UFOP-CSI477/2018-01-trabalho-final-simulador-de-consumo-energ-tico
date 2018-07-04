@@ -16,14 +16,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/adm', function () {
-    return view('administrativo/principal');
+Route::post('/', function () {
+    return view('welcome');
 });
 
-Route::get('/user', function () {
-	$rooms = Room::all();
-    return view('usuario/principal')->with('rooms', $rooms);
-});
+// Route::get('/adm', function () {
+//     return view('administrativo/principal');
+// });
+
+// Route::get('/user', function () {
+// 	$rooms = Room::all();
+//     return view('usuario/principal')->with('rooms', $rooms);
+// });
 
 Route::get('/reports', function () {
     return view('administrativo/chart');
@@ -31,7 +35,10 @@ Route::get('/reports', function () {
 
 Route::resource('/distributors', 'DistributorsController');
 Route::resource('/rooms', 'RoomsController');
-
-//Route::resource('/user', 'UsersController');
-// Route::resource('/equipments', 'EquipmentsController');
+Route::resource('/user', 'UsersController');
+Route::resource('/equipments', 'EquipmentsController');
 // Route::resource('/reports', 'ReportsController');
+
+Route::get('/equipments/create/{room}', 'EquipmentsController@create_for_room')->name('equipments.create_for_room');
+
+Auth::routes();

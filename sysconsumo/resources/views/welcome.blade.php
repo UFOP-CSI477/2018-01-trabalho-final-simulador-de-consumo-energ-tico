@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="{{ app()->getLocale() }}">
 <head>
-
   <meta charset="utf-8">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simulador de Consumo Energético</title>
-<!--
-Comila Template
-http://www.templatemo.com/tm-490-comila
--->
+<!-- Comila Template: http://www.templatemo.com/tm-490-comila -->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="">
@@ -47,17 +44,36 @@ http://www.templatemo.com/tm-490-comila
 
     <div class="collapse navbar-collapse navbar-right" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="dropdown" style="display: none;">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meus Cômodos <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Sala</a></li>
-                <li><a href="#">Cozinha</a></li>
-                <li><a href="#">Banheiro Social</a></li>
-              </ul>
-            </li>
-        <li><a href="#cadastrar" data-toggle="modal" data-target="#modal2"><span class="glyphicon glyphicon-user"></span> Cadastrar</a></li>
-        <li><a href="#login" data-toggle="modal" data-target="#modal1"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        @guest
+        <li>
+          <a href="{{ route('register') }}">
+            <span class="glyphicon glyphicon-user"></span> {{ __('Cadastrar') }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('login') }}">
+            <span class="glyphicon glyphicon-log-in"></span> {{ __('Entrar') }}
+          </a>
+        </li>
+        @else
+        <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </div>
+          </li>
+      @endguest
       </ul>
     </div>
   </div>
@@ -73,7 +89,7 @@ http://www.templatemo.com/tm-490-comila
           <h1>Simulador de Consumo Energético</h1>
           <h3>Veja qual o <strong>consumo de energia</strong> de cada <strong>cômodo de sua casa</strong>.</h3>
           <a href="#feature" class="btn btn-lg btn-default">Entenda o cálculo</a>
-          <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-lg btn-success smoothScroll">Iniciar simulação</a>
+          <a href="{{ route('login') }}" class="btn btn-lg btn-success smoothScroll">Iniciar simulação</a>
         </div>
       </div>
 
@@ -289,43 +305,6 @@ http://www.templatemo.com/tm-490-comila
     </div>
   </div>
 </footer>
-
-<!-- modal -->
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content modal-popup">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title">Login</h2>
-      </div>
-      <form action="#" method="post">
-        <input name="email" type="text" class="form-control" id="email" placeholder="E-mail">
-        <input name="password" type="password" class="form-control" id="password" placeholder="Senha">
-        <input name="login" type="submit" class="form-control" id="login" value="Entrar">
-      </form>
-      <<a href="#cadastrar" data-toggle="modal" data-target="#modal2">Quero me cadastrar</a>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content modal-popup">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title">Cadastre-se</h2>
-      </div>
-      <form action="#" method="post">
-        <input name="name" type="text" class="form-control" id="name" placeholder="Nome">
-        <input name="email" type="text" class="form-control" id="email" placeholder="E-mail">
-        <input name="verifyemail" type="text" class="form-control" id="verifyemail" placeholder="Confirmar E-mail">
-        <input name="password" type="password" class="form-control" id="password" placeholder="Senha">
-        <input name="verifypassword" type="password" class="form-control" id="verifypassword" placeholder="Confirmar Senha">
-        <input name="submit" type="submit" class="form-control" id="submit" value="Enviar">
-      </form>
-    </div>
-  </div>
-</div>
 
 <!-- Back top -->
 <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>

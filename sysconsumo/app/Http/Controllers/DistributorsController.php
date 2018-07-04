@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Distributor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DistributorsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +32,14 @@ class DistributorsController extends Controller
      */
     public function create()
     {
-        return view('administrativo.distributor.create');
+        if(Auth::user()->type==0){
+            return view('administrativo.distributor.create');
+        }
+        //usuário comum
+        else{
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user');
+        }
     }
 
     /**
@@ -39,9 +52,17 @@ class DistributorsController extends Controller
     {
         //dd($request);
 
-        Distributor::create($request->all());
-        session()->flash('mensagem', 'Distribuidora de energia inserida com sucesso!');
-        return redirect()->route('distributors.index');
+        if(Auth::user()->type==0){
+            Distributor::create($request->all());
+            session()->flash('mensagem', 'Distribuidora de energia inserida com sucesso!');
+            return redirect()->route('distributors.index');
+        }
+        //usuário comum
+        else{
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user');
+        }
+        
     }
 
     /**
@@ -63,7 +84,15 @@ class DistributorsController extends Controller
      */
     public function edit(Distributor $distributor)
     {
-        return view('administrativo.distributor.edit')->with('distributor', $distributor);
+        //administrador
+        if(Auth::user()->type==0){
+            return view('administrativo.distributor.edit')->with('distributor', $distributor);    
+        }
+        //usuário comum
+        else{
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user');
+        }
     }
 
     /**
@@ -75,10 +104,18 @@ class DistributorsController extends Controller
      */
     public function update(Request $request, Distributor $distributor)
     {
-        $distributor->fill($request->all());
-        $distributor->save();
-        session()->flash('mensagem','Distribuidora de energia atualizada com sucesso!');
-        return redirect()->route('distributors.show', $distributor->id);
+        //administrador
+        if(Auth::user()->type==0){
+            $distributor->fill($request->all());
+            $distributor->save();
+            session()->flash('mensagem','Distribuidora de energia atualizada com sucesso!');
+            return redirect()->route('distributors.show', $distributor->id);
+        }
+        //usuário comum
+        else{
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user');
+        }
     }
 
     /**
@@ -89,6 +126,16 @@ class DistributorsController extends Controller
      */
     public function destroy(Distributor $distributor)
     {
-        //
+        //administrador
+        if(Auth::user()->type==0){
+            session()->flash('mensagem', 'Acesso Negado!');
+            return redirect()->route('user');
+        }
+        //usuário comum
+        else{
+            $distributor->delete();
+            session()->flash('mensagem', 'Distribuidor excluído com sucesso!');
+            return redirect()->route('distributors.index');
+        }
     }
 }

@@ -1,4 +1,7 @@
 @extends('welcome')
-@section('cadastro')
+@section('menu')
+    @include('usuario.menu')
+@endsection
+@section('conteudo')
 
-@endsection('cadastro')
+@endsection('conteudo')

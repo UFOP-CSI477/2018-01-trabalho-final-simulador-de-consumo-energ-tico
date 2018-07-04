@@ -1,5 +1,8 @@
 @extends('layout.template')
 @section('title', 'Detalhes do Cômodo')
+@section('menu')
+    @include('usuario.menu')
+@endsection
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">
@@ -15,7 +18,21 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="pb-2 display-5">{{ $room->name }}</h3>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3 class="pb-2 display-5">{{ $room->name }}</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-info btn-sm" style="width:100%;">Editar</a>
+                    </div>
+                    <div class="col-md-2">
+                        <form method="post" action="{{ route('rooms.destroy', $room->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" class="btn btn-danger btn-sm" value="Excluir" style="width:100%;">
+                        </form>
+                    </div>
+                </div>                
             </div>
             <div class="card-body card-block">
 
@@ -25,18 +42,12 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="input-group">
-                            <input type="text" disabled name="watts" value="500" class="form-control">
-                            <div class="input-group-addon">
-                                <strong>W</strong>
-                            </div>
+                            <p><span name="consumo-total-potencia">{{ $potencia_total->potencia_total }}</span><strong> W</strong></p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="input-group">
-                            <div class="input-group-addon">
-                                <strong>R$</strong>
-                            </div>
-                            <input type="text" disabled name="spend" value="107.64" class="form-control">
+                            <p><strong>R$ </strong><span name="consumo-total-dinheiro">107.64</span></p>
                         </div>
                     </div>
                 </div>
@@ -47,8 +58,8 @@
                     </div>
                 
                     <div class="col-lg-3">
-                        <a href="{{ route('distributors.create') }}" class="au-btn au-btn-icon au-btn--black">
-                                <i class="zmdi zmdi-plus"></i>Equipamento
+                        <a href="{{ route('equipments.create_for_room', $room->id) }}" class="au-btn au-btn-icon au-btn--black">
+                            <i class="zmdi zmdi-plus"></i>Equipamento
                         </a>
                     </div>
                 </div>
@@ -62,24 +73,26 @@
                                         <th>Equipamento</th>
                                         <th>Qtd</th>
                                         <th>Potência (W)</th>
-                                        <th>Tempo de uso (min/dia)</th>
+                                        <th>Tempo de uso (h/dia)</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                @foreach($equipments as $e)    
                                     <tr>
-                                        <td>Aparelho de som</td>
-                                        <td>1</td>
-                                        <td>60</td>
-                                        <td>120</td>
+                                        <td>{{$e->name}}</td>
+                                        <td>{{$e->amount}}</td>
+                                        <td>{{$e->watts}}</td>
+                                        <td>{{$e->time_use}}</td>
                                         <td>
                                             <div class="row">
                                                 <!-- ALTERAR OS LINKS PARA O DOS APARELHOS -->
                                                 <div class="col-md-6">
-                                                    <a href="" class="btn btn-info btn-sm" style="width:100%;">Editar</a>
+                                                    <a href="{{ route('equipments.edit', $e->id) }}" class="btn btn-info btn-sm" style="width:100%;">Editar</a>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form method="post" action="">
+                                                    <form method="post" action="{{ route('equipments.destroy', $e->id) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="submit" class="btn btn-danger btn-sm" value="Excluir" style="width:100%;">
@@ -88,6 +101,8 @@
                                             </div>
                                         </td>
                                     </tr>
+                                @endforeach
+
                                 </tbody>
                             </table>
                         </div>

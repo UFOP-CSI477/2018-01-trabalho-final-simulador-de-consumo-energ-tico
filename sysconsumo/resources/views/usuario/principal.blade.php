@@ -1,5 +1,8 @@
 @extends('layout.template')
 @section('title', 'Área do usuário')
+@section('menu')
+    @include('usuario.menu')
+@endsection
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">

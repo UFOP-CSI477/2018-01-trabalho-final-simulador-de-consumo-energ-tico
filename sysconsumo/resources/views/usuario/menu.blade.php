@@ -39,7 +39,12 @@
 <div class="menu-sidebar__content js-scrollbar1">
     <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar__list">
-            <li class="active has-sub">
+            <li>
+                Distribuidora: <strong>{{ Auth::user()->distributor->name }}</strong>
+                <a href="{{ route('user.edit', Auth::user()->id) }}">Alterar distribuidora</a>
+            </li>
+            <hr>
+            <li class="has-sub">
                 <a class="js-arrow" href="#">
                     <i class="fa fa-bars"></i>Cômodos</a>
                 <ul class="list-unstyled navbar__sub-list js-sub-list">

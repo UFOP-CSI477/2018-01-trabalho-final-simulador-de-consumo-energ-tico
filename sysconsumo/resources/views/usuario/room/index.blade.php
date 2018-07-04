@@ -1,5 +1,8 @@
 @extends('layout.template')
 @section('title', 'Lista de Distribuidoras')
+@section('menu')
+    @include('usuario.menu')
+@endsection
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">
@@ -12,55 +15,51 @@
     </div>
 </div>
 <div class="row m-t-25">
-    @foreach($rooms as $r)
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <strong class="card-title">{{ $r->name }}</strong>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="table-responsive">
-                                <table class="table" style="font-size: 13px; text-align: center;">
-                                    <thead>
-                                        <tr>
-                                            <th>Equipamento</th>
-                                            <th>Qtd</th>
-                                            <th>Potência (W)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Aparelho de som</td>
-                                            <td>1</td>
-                                            <td>60</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="table-responsive" style="overflow-x:hidden;">
+                        <table class="table" style="font-size: 13px; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th>Nome do cômodos</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($rooms as $r)
+                                <tr>
+                                    <td>{{ $r->name }}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <a href="{{ route('rooms.show', $r->id) }}" class="btn btn-primary btn-sm" 
+                                                    style="width:60%;">Detalhes e Equipamentos</a>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="{{ route('rooms.edit', $r->id) }}" class="btn btn-info btn-sm" 
+                                                    style="width:100%;">Editar</a>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <form method="post" action="{{ route('rooms.destroy', $r->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="submit" class="btn btn-danger btn-sm" value="Excluir" 
+                                                            style="width:100%;">
+                                                </form>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="{{ route('rooms.show', $r->id) }}" class="btn btn-primary btn-sm" style="width:100%;">Detalhes</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="{{ route('rooms.edit', $r->id) }}" class="btn btn-info btn-sm" style="width:100%;">Editar</a>
-                        </div>
-                        <div class="col-md-4">
-                            <form method="post" action="{{ route('rooms.destroy', $r->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" class="btn btn-danger btn-sm" value="Excluir" style="width:100%;">
-                            </form>
-                        </div>
-                    </div> 
                 </div>
             </div>
         </div>
-    @endforeach
+    </div>
 </div>
 @endsection('conteudo')
 
