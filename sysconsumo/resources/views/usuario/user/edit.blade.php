@@ -73,7 +73,7 @@
                                     <option value="{{$d->id}}"
                                         @if($d->id == Auth::user()->distributor->id)
                                             selected
-                                        @endif>{{$d->name}}</option>
+                                        @endif>{{$d->name}} - {{$d->uf}}</option>
                                     @endforeach
                                 </select>
                             </div>

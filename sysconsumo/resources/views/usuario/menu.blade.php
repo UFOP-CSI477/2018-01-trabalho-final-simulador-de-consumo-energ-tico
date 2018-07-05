@@ -30,7 +30,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block">
 <div class="logo">
-    <a class="logo" href="index.html">
+    <a class="logo" href="{{ route('user.index') }}">
         <h1 style="margin-right: 10px;"><i class="fa fa-flash"></i></h1>
         <h3 class="pb-2 display-5"> CONSUMO ENERGÉTICO</h3>
         

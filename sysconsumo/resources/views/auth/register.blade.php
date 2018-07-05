@@ -80,7 +80,7 @@
                             <div class="col-md-6">
                                 <select name="distributor_id" id="distributor_id" class="form-control">
                                     @foreach($distributors as $d)
-                                    <option value="{{$d->id}}">{{$d->name}}</option>
+                                    <option value="{{$d->id}}">{{$d->name}} - {{$d->uf}}</option>
                                     @endforeach
                                 </select>
                             </div>

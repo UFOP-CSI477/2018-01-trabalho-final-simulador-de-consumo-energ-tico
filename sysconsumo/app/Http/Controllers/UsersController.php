@@ -71,7 +71,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        $distributors = Distributor::all();
+        $distributors = Distributor::orderBy('uf')->orderBy('name')->get();
         return view('usuario.user.edit')->with('distributors',$distributors);
     }
 
@@ -84,10 +84,10 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $distributor->fill($request->has('password') ? $request->all() : $request->except(['password']));
-        $distributor->save();
+        $user->fill($request->has('password') ? $request->all() : $request->except(['password']));
+        $user->save();
         session()->flash('mensagem','Usuário atualizado com sucesso!');
-        return redirect()->route('distributors.show', $distributor->id);
+        return redirect()->route('user.show', $user->id);
     }
 
     /**

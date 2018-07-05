@@ -85,7 +85,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        $distributors=Distributor::all();
+        $distributors=Distributor::orderBy('uf')->orderBy('name')->get();
         return view('auth.register')->with('distributors', $distributors);
     }
 }

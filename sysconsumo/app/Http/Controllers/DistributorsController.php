@@ -20,7 +20,7 @@ class DistributorsController extends Controller
      */
     public function index()
     {
-        $distributors = Distributor::all();
+        $distributors = Distributor::orderBy('uf')->orderBy('name')->get();
         return view('administrativo.distributor.index')->with('distributors', $distributors);
 
     }

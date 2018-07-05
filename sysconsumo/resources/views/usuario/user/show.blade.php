@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="overview-wrap" style="float: right;">
-            <a href="{{ route('distributors.index') }}" class="au-btn au-btn-icon au-btn--black">
+            <a href="{{ route('user.index') }}" class="au-btn au-btn-icon au-btn--black">
                 Voltar
             </a>
         </div>
