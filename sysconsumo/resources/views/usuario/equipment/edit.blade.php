@@ -1,8 +1,8 @@
 @extends('layout.template')
 @section('title', 'Cadastro de Equipamento')
-@section('menu')
+{{-- @section('menu')
     @include('usuario.menu')
-@endsection
+@endsection --}}
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">

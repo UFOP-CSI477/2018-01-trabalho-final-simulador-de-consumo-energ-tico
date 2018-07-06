@@ -1,7 +1,7 @@
 @extends('welcome')
-@section('menu')
+{{-- @section('menu')
     @include('usuario.menu')
-@endsection
+@endsection --}}
 @section('conteudo')
 
 @endsection('conteudo')

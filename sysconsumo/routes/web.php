@@ -16,9 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/', function () {
-    return view('welcome');
-});
 
 // Route::get('/adm', function () {
 //     return view('administrativo/principal');
@@ -37,7 +34,7 @@ Route::resource('/distributors', 'DistributorsController');
 Route::resource('/rooms', 'RoomsController');
 Route::resource('/user', 'UsersController');
 Route::resource('/equipments', 'EquipmentsController');
-// Route::resource('/reports', 'ReportsController');
+Route::resource('/reports', 'ReportsController');
 
 Route::get('/equipments/create/{room}', 'EquipmentsController@create_for_room')->name('equipments.create_for_room');
 

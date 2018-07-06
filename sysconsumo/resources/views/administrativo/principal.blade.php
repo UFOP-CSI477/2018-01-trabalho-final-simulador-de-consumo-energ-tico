@@ -1,8 +1,5 @@
 @extends('layout.template')
 @section('title', 'Área Administrativa')
-@section('menu')
-    @include('administrativo.menu')
-@endsection
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">

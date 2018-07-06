@@ -1,8 +1,8 @@
 @extends('layout.template')
 @section('title', 'Alteração de dados do usuário')
-@section('menu')
+{{-- @section('menu')
     @include('usuario.menu')
-@endsection('menu')
+@endsection --}}
 @section('conteudo')
 <div class="container">
     <div class="row justify-content-center">

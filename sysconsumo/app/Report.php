@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
-    protected $fillable = ['date','watts','spend','tax','room','user_id','distr_id'];
+    protected $fillable = ['date_start','date_finish','watts','spend','tax','room','user_id','distr_id'];
     /*
 		~Detalhamento dos dados~
 		Date: data de criação do relatório
-		Watts: total gasto até aquele momento
+		Watts: total gasto até aquele momento em kW
 		Spend: custo final
 		Tax: tarifa utilizada para calcular
 				0 - Bandeira Verde (tarifa convencional - cadastrada no sistema)

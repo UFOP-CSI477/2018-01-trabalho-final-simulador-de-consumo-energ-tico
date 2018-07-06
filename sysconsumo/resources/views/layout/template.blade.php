@@ -40,80 +40,12 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a href="#">
-                            <i class="fa-flash"></i>CONSUMO ENERGÉTICO
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <!-- HEADER CONTINUA NO ARQUIVO DE MENU PARA PERMITIR PERSONALIZAÇÃO PARA OS DOIS TIPOS DE USUÁRIO ADMINISTRADOR E USUÁRIO COMUM -->
-
-        <!-- verificar se é adm se for usar o include 1 se não o include 2 -->
-        <!-- include('administrativo.menu') -->
-        @yield('menu')
-
+        @include('layout.menu')
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <div class="account-wrap">
-                                <div class="account-item clearfix js-item-menu">
-                                    <nav class="navbar navbar-dark navbar-expand-md">
-                                        <div class="container">
-                                            <ul class="navbar-nav ml-auto">
-                                                <!-- Authentication Links -->
-                                                @guest
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastrar') }}</a>
-                                                    </li>
-                                                @else
-                                                    <li class="account-item clearfix js-item-menu">
-                                                        <a id="navbarDropdown" class="js-acc-btn">
-                                                            {{ Auth::user()->name }} <i class="fa fa-angle-down"></i>
-                                                        </a>
+            @include('layout.header')
 
-                                                        <div class="account-dropdown js-dropdown">
-                                                            <div class="account-dropdown__item">
-                                                                <a href="{{ route('user.edit', Auth::user()->id) }}">
-                                                                    {{ __('Alterar dados') }}
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="account-dropdown__item">
-                                                                <a href="{{ route('logout') }}"
-                                                                   onclick="event.preventDefault();
-                                                                            document.getElementById('logout-form').submit();">
-                                                                    {{ __('Logout') }}
-                                                                </a>
-                                                            </div>
-
-                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                                @csrf
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                @endguest
-                                            </ul>
-                                        </div>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- HEADER DESKTOP-->
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">

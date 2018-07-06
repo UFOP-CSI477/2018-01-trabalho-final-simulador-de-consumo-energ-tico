@@ -279,7 +279,7 @@ section {
 
 .page-container {
     background: #e5e5e5;
-    padding-left: 300px;
+    padding-left: 260px;
 }
 
 @media (max-width: 991px) {
@@ -1183,7 +1183,7 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    left: 300px;
+    left: 260px;
     height: 75px;
     z-index: 3;
 }
@@ -1572,7 +1572,7 @@ section {
 }
 
 .menu-sidebar {
-    width: 300px;
+    width: 260px;
     position: fixed;
     left: 0;
     top: 0;
@@ -2299,7 +2299,7 @@ section {
     z-index: 1001;
     top: 0;
     right: 0;
-    left: 300px;
+    left: 260px;
 }
 
 @media (max-width: 991px) {

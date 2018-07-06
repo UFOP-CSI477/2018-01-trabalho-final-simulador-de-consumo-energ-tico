@@ -1,8 +1,8 @@
 @extends('layout.template')
 @section('title', 'Cadastro de Cômodo')
-@section('menu')
+{{-- @section('menu')
     @include('usuario.menu')
-@endsection('menu')
+@endsection --}}
 @section('conteudo')
 <div class="row">
     <div class="col-md-12">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
 
-                    <input type="hidden" id="user_id" name="user_id" class="form-control" value="1">
+                    <input type="hidden" id="user_id" name="user_id" class="form-control" value=""{{ Auth::user()->id }}">
                     <!-- SUBSTITUIR O VALUE DO CAMPO HIDDEN PELO ID DO USUÁRIO LOGADO -->
                 </div>
                 <div class="card-footer">

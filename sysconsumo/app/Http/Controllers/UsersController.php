@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Charts;
 use App\User;
 use App\Distributor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -27,7 +29,8 @@ class UsersController extends Controller
         }
         //usuário comum
         else{
-            return view('usuario.principal');
+            $distributors = Distributor::orderBy('uf')->orderBy('name')->get();
+            return view('usuario.principal')->with('distributors', $distributors);
         }   
     }
 
@@ -84,7 +87,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->fill($request->has('password') ? $request->all() : $request->except(['password']));
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->type = $request->type;
+        $user->distributor_id = $request->distributor_id;
+
+        //$user->fill($request->has('password') ? $request->all() : $request->except(['password']));
         $user->save();
         session()->flash('mensagem','Usuário atualizado com sucesso!');
         return redirect()->route('user.show', $user->id);

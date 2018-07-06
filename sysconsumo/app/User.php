@@ -30,4 +30,9 @@ class User extends Authenticatable
     public function distributor(){
         return $this->belongsTo('App\Distributor', 'distributor_id');
     }
+
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
+    }
 }

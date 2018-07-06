@@ -1,19 +1,5 @@
 @extends('layout.template')
 @section('title', 'Reset')
-@section('menu')
-    </header>
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a class="logo" href="index.html">
-                    <h1 style="margin-right: 10px;"><i class="fa fa-flash"></i></h1>
-                    <h3 class="pb-2 display-5"> CONSUMO ENERGÉTICO</h3>
-                    
-                </a>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-@endsection
 @section('conteudo')
 <div class="container">
     <div class="row justify-content-center">

@@ -28,7 +28,7 @@ class EquipmentsController extends Controller
         }
         //usuário comum
         else{
-            $equipment = Equipments::orderBy('name')->where('user_id',Auth::user()->id)->get();
+            $equipment = Equipment::orderBy('name')->where('user_id',Auth::user()->id)->get();
             return view('usuario.equipment.index')->with('equipments', $equipments);
         }
 
