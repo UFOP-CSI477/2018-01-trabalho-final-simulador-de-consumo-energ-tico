@@ -40,6 +40,26 @@ O simulador de consumo energético terá as seguintes restrições:
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
+Abaixo temos a prototipação das principais telas do simulador de consumo energético.
+
+* Tela de login
+
+![Login](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/login.png)
+
+* Home User
+
+![Home](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/tela_inicial_usuário.png)
+
+* Produtos
+
+![Produtos]()
+
+* Cadastro de Produtos
+
+![Cadastro de Produtos]()
+
+As outras telas seguem o mesmo estilo.
+
 
 
 ### 5. Referências
