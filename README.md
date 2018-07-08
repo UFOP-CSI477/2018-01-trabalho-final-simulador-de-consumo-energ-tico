@@ -40,26 +40,6 @@ O simulador de consumo energético terá as seguintes restrições:
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
-Abaixo temos a prototipação das principais telas do simulador de consumo energético.
-
-* Tela de login
-
-![Login]()
-
-* Home
-
-![Home]()
-
-* Produtos
-
-![Produtos]()
-
-* Cadastro de Produtos
-
-![Cadastro de Produtos]()
-
-As outras telas seguem o mesmo estilo.
-
 
 
 ### 5. Referências
