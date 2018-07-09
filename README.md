@@ -16,7 +16,11 @@ Será desenvolvido um simulador para calcular o consumo energético de uma resid
 ### 2. Escopo
 O nosso simulador conta com as seguintes funcionalidades:
 
-Nível de Acesso: Usuário Comum
+Nível de Acesso: Usuário Comum Não Registrado
+* Tela de Acesso Principal
+* Registro
+
+Nível de Acesso: Usuário Comum Registrado
 * Tela inicial com a Tabela de Tarifas das Distribuidoras
 * Cadastrar/Editar/Excluir Cômodo;
 * Cômodos Cadastrados
