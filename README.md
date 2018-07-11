@@ -16,17 +16,23 @@ Será desenvolvido um simulador para calcular o consumo energético de uma resid
 ### 2. Escopo
 O nosso simulador conta com as seguintes funcionalidades:
 
-* Adicionar/remover cômodo;
-* Adicionar/remover aparelho ao cômodo;
-* Inserir/editar tempo de uso de cada aparelho;
-* Inserir/editar consumo do aparelho;
-* Criar relatório;
-* Data inicial/final do relatório;
-* Escolher o tipo de avaliação;
-* Inserir consumo mensal real para comparação;
-* Gerar relatório geral da simulação;
-* Gerar relatório geral de comparação;
-* Informações;
+Nível de Acesso: Usuário Comum Não Registrado
+* Tela de Acesso Principal
+* Registro
+
+Nível de Acesso: Usuário Comum Registrado
+* Tela inicial com a Tabela de Tarifas das Distribuidoras
+* Cadastrar/Editar/Excluir Cômodo;
+* Cômodos Cadastrados
+* Cadastrar/Editar/Excluir Equipamento do Cômodo;
+* Detalhes e Equipamentos
+* Criar/Excluir Relatório;
+* Exibir Detalhes do Relatório;
+* Relatório Detalhado;
+
+Nível de Acesso: Administrador
+* Adicionar/Editar/Remover Distribuídora Cadastrada
+* Distribuídoras Cadastradas
 
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
@@ -35,11 +41,65 @@ O simulador de consumo energético terá as seguintes restrições:
 
 * O usuário deverá criar um cadastro;
 * O usuário deverá cadastrar os cômodos;
-* Para realizar a comparação entre simulação e consumo real, é necessário que o usuário tenha ao menos um de cada cadastrado;
+* O usuário deverá cadastrar os equipamentos;
+* Para gerar um relatório é necessário que o usuário tenha ao menos um cômodo e um equipamento cadastrado;
 
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
+Abaixo temos a prototipação das telas do simulador de consumo energético.
+
+* Tela de login
+
+![Login](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/login.png)
+
+** Usuário Comum **
+
+* Home
+
+![Home](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/tela_inicial_usuário.png)
+
+* Cadastrar/Editar Cômodo
+
+![Cadastrar/Editar Comodo](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/cadastro_comodo.png)
+
+* Cômodos Cadastrados
+
+![Cômodos Cadastrados](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/meus_comodos.png)
+
+* Detalhes e Equipamentos
+
+![Dados do Cômodo](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/detalhes_equipamentos.png)
+
+* Cadastro/Editar Equipamentos
+
+![Cadastro/Editar Equipamento](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/cadastro_equipamento.png)
+
+* Meus Relatórios
+
+![Meus Relatórios](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/meus_relatorios.png)
+
+* Criar Relatório
+
+![Criação de Relatório](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/criar_relatorio.png)
+
+* Relatório Detalhado
+
+![Relatório Detalhado](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/relatorio_detalhado.png)
+
+** Administrador **
+
+* Home
+
+![Home Admin](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/tela_inicial_adm.png)
+
+* Cadastrar Distribuidora
+
+![Cadastro de Distribuidora](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/cadastro_distribuidora.png)
+
+* Distribuidoras Cadastradas
+
+![Distribuidoras Cadastradas](https://github.com/UFOP-CSI477/2018-01-trabalho-final-simulador-de-consumo-energetico/blob/master/telas/distribuidoras_cadastradas.png)
 
 
 ### 5. Referências
