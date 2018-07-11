@@ -125,13 +125,13 @@
                 </li>
                 @else
                 <li class="has-sub">
-                    <a class="js-arrow" href="#"><i class="fa fa-bars"></i>Cômodos</a>
+                    <a class="js-arrow" href="#"><i class="fa fa-bars"></i>Distribuidoras</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('rooms.create') }}"><i class="fa fa-plus"></i>Adicionar cômodo</a>
+                            <a href="{{ route('distributors.index') }}">Listar</a>
                         </li>
                         <li>
-                            <a href="{{ route('rooms.index') }}">Meus cômodos</a>
+                            <a href="{{ route('distributors.create') }}">Cadastrar</a>
                         </li>
                     </ul>
                 </li>
